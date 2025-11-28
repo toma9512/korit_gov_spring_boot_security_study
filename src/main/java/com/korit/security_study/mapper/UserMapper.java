@@ -10,5 +10,7 @@ public interface UserMapper {
     Optional<User> getUserByUsername(String username);
     Optional<User> getUserByUserId(Integer userId);
     void addUser(User user);
-    int deleteUserByUsername(String username);
+    int deleteUserByUserId(Integer userId);
+    int modifyPassword(User user);
+    int modifyEmail(User user);
 }

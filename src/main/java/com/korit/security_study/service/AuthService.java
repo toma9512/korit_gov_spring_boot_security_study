@@ -1,9 +1,6 @@
 package com.korit.security_study.service;
 
-import com.korit.security_study.dto.ApiRespDto;
-import com.korit.security_study.dto.DeleteUserReqDto;
-import com.korit.security_study.dto.SigninReqDto;
-import com.korit.security_study.dto.SignupReqDto;
+import com.korit.security_study.dto.*;
 import com.korit.security_study.entity.User;
 import com.korit.security_study.entity.UserRole;
 import com.korit.security_study.jwt.JwtUtils;
@@ -69,7 +66,7 @@ public class AuthService {
     public ApiRespDto<?> signin(SigninReqDto signinReqDto) {
         Optional<User> foundUser = userRepository.getUserByUsername(signinReqDto.getUsername());
 
-        if (foundUser.isEmpty() ) {
+        if (foundUser.isEmpty()) {
             return new ApiRespDto<>("failed", "회원 정보가 일치하지 않음", null);
         }
         User user = foundUser.get();
@@ -80,22 +77,5 @@ public class AuthService {
         String token = jwtUtils.generateAccessToken(user.getUserId().toString());
 
         return new ApiRespDto<>("success", "로그인 성공", token);
-    }
-
-    public ApiRespDto<?> deleteUser(DeleteUserReqDto deleteUserReqDto) {
-        Optional<User> foundUser = userRepository.getUserByUsername(deleteUserReqDto.getUsername());
-
-        if (foundUser.isEmpty() ||
-                !bCryptPasswordEncoder.matches(deleteUserReqDto.getPassword(), foundUser.get().getPassword())) {
-            return new ApiRespDto<>("failed", "회원 정보가 일치하지 않음", null);
-        }
-
-        int result = userRepository.deleteUserByUsername(deleteUserReqDto.getUsername());
-
-        if (result != 1) {
-            return new ApiRespDto<>("failed", "회원 정보 삭제 실패", null);
-        }
-
-        return new ApiRespDto<>("success", "회원 정보 삭제 완료", null);
     }
 }

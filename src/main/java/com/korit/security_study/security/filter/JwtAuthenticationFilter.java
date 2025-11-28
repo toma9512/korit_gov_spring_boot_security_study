@@ -67,8 +67,8 @@ public class JwtAuthenticationFilter implements Filter {
             } catch (RuntimeException e) {
                 e.printStackTrace();
             }
-
-            filterChain.doFilter(servletRequest, servletResponse);
         }
+
+        filterChain.doFilter(servletRequest, servletResponse);
     }
 }

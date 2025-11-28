@@ -63,10 +63,30 @@
             (0, #{username}, #{password}, #{email}, now(), null);
     </insert>
 
-    <delete id="deleteUserByUsername">
+    <delete id="deleteUserByUserId">
         delete from
             user_tb
         where
-            username = #{username};
+            user_id = #{userId};
     </delete>
+
+    <update id="modifyPassword">
+        update
+            user_tb
+        set
+            password = #{password},
+            update_dt = now()
+        where
+            user_id = #{userId};
+    </update>
+
+    <update id="modifyEmail">
+        update
+            user_tb
+        set
+            email = #{email},
+            update_dt = now()
+        where
+            user_id = #{userId};
+    </update>
 </mapper>

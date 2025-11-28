@@ -30,7 +30,15 @@ public class UserRepository {
         return Optional.of(user);
     }
 
-    public int deleteUserByUsername(String username) {
-        return userMapper.deleteUserByUsername(username);
+    public int deleteUserByUserId(Integer userId) {
+        return userMapper.deleteUserByUserId(userId);
+    }
+
+    public int modifyPassword(User user) {
+        return userMapper.modifyPassword(user);
+    }
+
+    public int modifyEmail(User user) {
+        return userMapper.modifyEmail(user);
     }
 }

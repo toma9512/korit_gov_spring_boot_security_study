@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class DeleteUserReqDto {
-    private String username;
+    private Integer userId;
     private String password;
 }

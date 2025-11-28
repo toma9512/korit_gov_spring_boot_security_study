@@ -38,9 +38,4 @@ public class AuthController {
     public ResponseEntity<?> getUserByUserId(@PathVariable Integer userId) {
         return ResponseEntity.ok(authService.getUserByUserId(userId));
     }
-
-    @PostMapping("/delete")
-    public ResponseEntity<?> deleteUser(@RequestBody DeleteUserReqDto deleteUserReqDto) {
-        return ResponseEntity.ok(authService.deleteUser(deleteUserReqDto));
-    }
 }
