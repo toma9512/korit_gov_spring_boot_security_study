@@ -56,6 +56,21 @@
             ut.user_id = #{userId};
     </select>
 
+    <select id="getUserByEmail" resultMap="UserResultMap">
+        select
+            ut.*,
+            urt.user_role_id,
+            urt.user_id AS urt_user_id,
+            urt.role_id AS urt_role_id,
+            rt.*
+        from
+            user_tb ut
+            join user_role_tb urt on (urt.user_id = ut.user_id)
+            join role_tb rt on (rt.role_id = urt.role_id)
+        where
+            ut.email = #{email};
+    </select>
+
     <insert id="addUser" useGeneratedKeys="true" keyProperty="userId">
         insert into
             user_tb

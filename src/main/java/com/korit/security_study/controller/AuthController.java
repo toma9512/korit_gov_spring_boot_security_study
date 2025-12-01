@@ -1,6 +1,5 @@
 package com.korit.security_study.controller;
 
-import com.korit.security_study.dto.DeleteUserReqDto;
 import com.korit.security_study.dto.SigninReqDto;
 import com.korit.security_study.dto.SignupReqDto;
 import com.korit.security_study.service.AuthService;
