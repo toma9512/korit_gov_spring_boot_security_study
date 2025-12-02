@@ -1,10 +1,8 @@
 package com.korit.security_study.service;
 
-import com.korit.security_study.dto.ApiRespDto;
-import com.korit.security_study.dto.DeleteUserReqDto;
-import com.korit.security_study.dto.ModifyEmailReqDto;
-import com.korit.security_study.dto.ModifyPasswordReqDto;
+import com.korit.security_study.dto.*;
 import com.korit.security_study.entity.User;
+import com.korit.security_study.repository.OAuth2UserRepository;
 import com.korit.security_study.repository.UserRepository;
 import com.korit.security_study.security.model.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,4 +98,6 @@ public class AccountService {
 
         return new ApiRespDto<>("success", "회원 정보 삭제 완료", null);
     }
+
+
 }

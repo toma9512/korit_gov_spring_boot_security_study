@@ -18,4 +18,8 @@ public class UserRoleRepository {
             e.printStackTrace();
         }
     }
+
+    public int updateUserRole(UserRole userRole) {
+        return userRoleMapper.updateUserRole(userRole);
+    }
 }
