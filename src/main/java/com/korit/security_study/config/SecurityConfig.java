@@ -94,8 +94,7 @@ public class SecurityConfig {
                         // 사용자 정보 요청이 완료가 되면 이 커스텀 서비스로 OAuth2User객체에 대한 처리를 하겠다고 설정
                         userInfo.userService(oAuth2PrincipalService))
                         // 사용자 정보 파싱이 끝난 후에 실행할 핸들러 설정
-                        .successHandler(oAuth2SuccessHandler)
-        );
+                        .successHandler(oAuth2SuccessHandler));
 
         return http.build();
     }
